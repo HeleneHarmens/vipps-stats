@@ -25,6 +25,12 @@ public class Customer {
         this.emailId = emailId;
     }
 
+    public Customer(long customerId, String firstName, String lastName, String emailId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+    }
+
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customerID", nullable = false)
