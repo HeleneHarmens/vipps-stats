@@ -30,7 +30,7 @@ public class Customer {
     public long getCustomerId() {
         return customerId;
     }
-    public void setId(long customerId) {
+    public void setCustomerId(long customerId) {
         this.customerId = customerId;
     }
 
