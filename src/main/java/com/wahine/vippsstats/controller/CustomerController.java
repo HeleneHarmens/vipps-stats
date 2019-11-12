@@ -35,21 +35,21 @@ public class CustomerController {
     public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "id") Long customerId)
             throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + customerId));
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
         return ResponseEntity.ok().body(customer);
     }
-    /*
+
     @PostMapping("/customers")
-    public Customer createEmployee(@Valid @RequestBody Customer customer) {
+    public Customer createCustomer(@Valid @RequestBody Customer customer) {
         return customerRepository.save(customer);
     }
-     */
 
-    /*
+
+
     @PutMapping("/customers/{id}")
-    public ResponseEntity<Customer> updateEmployee(@PathVariable(value = "id") Long customerId,
-                                                   @Valid @RequestBody Customer employeeDetails) throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(employeeId)
+    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "id") Long customerId,
+                                                   @Valid @RequestBody Customer customerDetails) throws ResourceNotFoundException {
+        Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
 
         customer.setEmailId(customerDetails.getEmailId());
@@ -58,19 +58,17 @@ public class CustomerController {
         final Customer updatedCustomer = customerRepository.save(customer);
         return ResponseEntity.ok(updatedCustomer);
     }
-     */
 
-    /*
     @DeleteMapping("/customers/{id}")
-    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") Long customerId)
+    public Map<String, Boolean> deleteCustomer(@PathVariable(value = "id") Long customerId)
             throws ResourceNotFoundException {
-        Customer employee = customerRepository.findById(customerId)
+        Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
 
-        customerRepository.delete(employee);
+        customerRepository.delete(customer);
         Map<String, Boolean> response = new HashMap<>();
         response.put("deleted", Boolean.TRUE);
         return response;
     }
-     */
+
 }
