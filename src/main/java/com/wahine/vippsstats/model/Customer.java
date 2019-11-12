@@ -26,7 +26,8 @@ public class Customer {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customerID", nullable = false)
     public long getCustomerId() {
         return customerId;
     }
