@@ -31,7 +31,7 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-    @GetMapping("/customers/{id}")
+    @GetMapping("/customer/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "id") Long customerId)
             throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(customerId)
