@@ -21,8 +21,20 @@ public class VippsStatsApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(VippsStatsApplication.class, args);
+		//SpringApplication.run(VippsStatsApplication.class, args);
 
+		String host = "ec2-54-197-238-238.compute-1.amazonaws.com";
+		String port = "5432";
+		String user = "zzfjlycmvbpfau";
+		String pass = "03a0094107507610c121285d2d780a99c967d312977c1506319003e3dd853966";
+		String database = "dcipc4joknr9oa";
+
+		PostgreSQLConnection psqlc = new PostgreSQLConnection(host, port, user, pass, database);
+
+		//String prettyConsoleOutput = psqlc.getResults("SELECT 'customerID', 'firstName' FROM customer");
+		//System.out.println(prettyConsoleOutput);
+
+		psqlc.checkDemo("customer", "firstName");
 	}
 
 }
