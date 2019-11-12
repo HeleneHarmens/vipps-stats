@@ -35,6 +35,9 @@ public class VippsStatsApplication {
 		//System.out.println(prettyConsoleOutput);
 
 		psqlc.checkDemo("customer", "firstName");
+
+
+		SpringApplication.run(VippsStatsApplication.class, args);
 	}
 
 }
