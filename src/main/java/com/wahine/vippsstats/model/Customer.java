@@ -12,18 +12,14 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String emailId;
-    private int mobileNumber;
-    /*
-    private int ssn;
+    private String mobileNumber;
+    private String ssn;
     private String dob;
     private String languageCode;
     private String createdAt;
     private String updatedOn;
     private String lastLoginDT;
     private int Status;
-
-     */
-
 
 
     public Customer() {
@@ -42,31 +38,20 @@ public class Customer {
         this.lastName = lastName;
         this.emailId = emailId;
     }
-    /*
-    public Customer(int customerId, String firstName, String lastName, String emailId, String dob, int ssn, int mobileNumber, String languageCode, String createdAt, String updatedOn, String lastLoginDT, int status) {
+
+    public Customer(int customerId, String firstName, String lastName, String emailId, String mobileNumber, String ssn, String dob, String languageCode, String createdAt, String updatedOn, String lastLoginDT, int status) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
-        this.dob = dob;
-        this.ssn = ssn;
         this.mobileNumber = mobileNumber;
+        this.ssn = ssn;
+        this.dob = dob;
         this.languageCode = languageCode;
         this.createdAt = createdAt;
         this.updatedOn = updatedOn;
         this.lastLoginDT = lastLoginDT;
         Status = status;
-    }
-
-     */
-
-
-    public Customer(int customerId, String firstName, String lastName, String emailId, int mobileNumber) {
-        this.customerId = customerId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailId = emailId;
-        this.mobileNumber = mobileNumber;
     }
 
     @Id
@@ -104,14 +89,13 @@ public class Customer {
     }
 
     @Column(name = "mobile_number", nullable = true)
-    public int getMobileNumber() {
+    public String getMobileNumber() {
         return mobileNumber;
     }
-    public void setMobileNumber(int mobileNumber) {
+    public void setMobileNumber(String mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 
-    /*
     @Column(name = "dob", nullable = true)
     public String getDob() {
         return dob;
@@ -121,10 +105,10 @@ public class Customer {
     }
 
     @Column(name = "ssn", nullable = true)
-    public int getSsn() {
+    public String getSsn() {
         return ssn;
     }
-    public void setSsn(int ssn) {
+    public void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
@@ -168,22 +152,22 @@ public class Customer {
         Status = status;
     }
 
-     */
 
     @Override
     public String toString() {
-        return "Customer [customer_id=" + customerId + ", " +
+        return "Customer [" +
+                "customer_id=" + customerId + ", " +
                 "first_name=" + firstName + ", " +
                 "last_name=" + lastName + ", " +
                 "email_id=" + emailId + ", " +
-                //"dob=" + dob + ", " +
-                //"ssn=" + ssn
-                "mobile_number=" + mobileNumber
-                //"language_code=" + languageCode + ", " +
-                //"created_at=" + createdAt + ", " +
-                //"updated_on=" + updatedOn + ", " +
-                //"last_login_dt=" + lastLoginDT + ", " +
-                //"status=" + Status
+                "dob=" + dob + ", " +
+                "ssn=" + ssn + ", " +
+                "mobile_number=" + mobileNumber + ", " +
+                "language_code=" + languageCode + ", " +
+                "created_at=" + createdAt + ", " +
+                "updated_on=" + updatedOn + ", " +
+                "last_login_dt=" + lastLoginDT + ", " +
+                "status=" + Status
                 + "]";
     }
 }
