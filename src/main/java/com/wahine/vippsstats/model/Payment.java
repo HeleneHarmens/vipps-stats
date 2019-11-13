@@ -41,7 +41,7 @@ public class Payment {
         this.receiverType = receiverType;
     }
 
-    @Id
+
     @Column(name = "customer_id", nullable = false)
     public int getcustomerID() {
         return customerID;
@@ -105,6 +105,7 @@ public class Payment {
         this.docType = docType;
     }
 
+    @Id
     @Column(name = "transaction_id", nullable = true)
     public int getTransactionID() {
         return transactionID;

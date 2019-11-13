@@ -9,15 +9,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.Statement;
+import java.nio.charset.StandardCharsets;
+import java.sql.*;
 import java.util.List;
 
 @Controller
 @SpringBootApplication
 public class VippsStatsApplication {
+
+	public String host;
+	public String port;
+	public String username;
+	public String password;
+	public String database;
+	private Connection connection;
 
 	@RequestMapping("/")
 	@ResponseBody
@@ -45,10 +50,48 @@ public class VippsStatsApplication {
 		psqlc.checkDemo("customer", "last_name");
 		psqlc.checkDemo("customer", "email_id");
 		psqlc.checkDemo("customer", "ssn");
-		psqlc.checkDemo("payment", "currency");
+
+
 
 
 		SpringApplication.run(VippsStatsApplication.class, args);
+	}
+
+
+	public ResultSet returnStats(String table, String pkColumn) {
+		try {
+			this.connect();
+			Statement stmt = null;
+			String query = "SELECT * FROM " + table;
+
+			stmt = this.connection.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			//System.out.println("Column " + pkColumn);
+			while (rs.next()) {
+				String id = new String(rs.getBytes(pkColumn), StandardCharsets.UTF_8);
+				//System.out.println("| Column " + id + " |");
+			}
+
+			this.disconnect();
+			return rs;
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		}
+		return null;
+	}
+
+	private void connect() throws Exception {
+		Class.forName("org.postgresql.Driver");
+		this.connection = null;
+		this.connection = DriverManager.getConnection(
+				"jdbc:postgresql://" + this.host + ":" + this.port + "/" + this.database, this.username, this.password);
+	}
+
+	private void disconnect() throws Exception {
+		if (this.connection != null) {
+			this.connection.close();
+			this.connection = null;
+		}
 	}
 
 

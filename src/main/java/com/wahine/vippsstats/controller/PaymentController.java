@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,37 +24,38 @@ public class PaymentController {
     public List<Payment> getAllPayments() {
             return paymentRepository.findAll();
     }
-/*
-    @PostMapping("/customers")
-    public Customer createCustomer(@Valid @RequestBody Customer customer) {
-        return customerRepository.save(customer);
-    }
 
-    @PutMapping("/customers/{customer_id}")
-    public ResponseEntity<Customer> updateCustomer(@PathVariable(value = "customer_id") int customerId,
-                                                   @Valid @RequestBody Customer customerDetails) throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
 
-        customer.setEmailId(customerDetails.getEmailId());
-        customer.setLastName(customerDetails.getLastName());
-        customer.setFirstName(customerDetails.getFirstName());
-        final Customer updatedCustomer = customerRepository.save(customer);
-        return ResponseEntity.ok(updatedCustomer);
-    }
-
-    @DeleteMapping("/customers/{customer_id}")
-    public Map<String, Boolean> deleteCustomer(@PathVariable(value = "customer_id") int customerId)
+    @GetMapping("/payments/{customer_id}")
+    public ResponseEntity<List<Payment>> getPaymentsByCustomerId(@PathVariable(value = "customer_id") int customerId)
             throws ResourceNotFoundException {
-        Customer customer = customerRepository.findById(customerId)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
-
-        customerRepository.delete(customer);
-        Map<String, Boolean> response = new HashMap<>();
-        response.put("deleted", Boolean.TRUE);
-        return response;
+        List<Payment> payments = getAllPayments();
+        List<Payment> customer_payment = new ArrayList<>();
+        for (Payment payment : payments) {
+            if (payment.getcustomerID() == customerId) {
+                customer_payment.add(payment);
+            }
+        }
+        return ResponseEntity.ok().body(customer_payment);
     }
 
- */
+    /*
+    @GetMapping("/payments/{customer_id}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "customer_id") int customerId)
+            throws ResourceNotFoundException {
+        Payment payment = paymentRepository.findById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
+        return ResponseEntity.ok().body(payment);
+    }
+     */
 
+    /*
+    @GetMapping("/payments/{customer_id}")
+    public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "customer_id") int customerId) throws ResourceNotFoundException {
+        //Payment payment = paymentRepository.findById(customerId)
+          //      .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
+
+        return returnStats(customerId);
+    }
+    */
 }
