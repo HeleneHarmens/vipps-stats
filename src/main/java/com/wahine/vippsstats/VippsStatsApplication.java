@@ -7,6 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.Statement;
 import java.util.List;
 
 @Controller
@@ -34,10 +40,14 @@ public class VippsStatsApplication {
 		//String prettyConsoleOutput = psqlc.getResults("SELECT 'customerID', 'firstName' FROM customer");
 		//System.out.println(prettyConsoleOutput);
 
-		psqlc.checkDemo("customer", "firstName");
+		psqlc.checkDemo("customer", "customer_id");
+		psqlc.checkDemo("customer", "first_name");
+		psqlc.checkDemo("customer", "last_name");
+		psqlc.checkDemo("customer", "email_id");
 
 
 		SpringApplication.run(VippsStatsApplication.class, args);
 	}
+
 
 }

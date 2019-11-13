@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "customer", schema = "dcipc4joknr9oa")
+@Table(name = "customer", schema = "public")
 public class Customer {
     private long customerId;
     private String firstName;
@@ -33,7 +33,7 @@ public class Customer {
 
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "customerID", nullable = false)
+    @Column(name = "customer_id", nullable = false)
     public long getCustomerId() {
         return customerId;
     }
@@ -41,7 +41,7 @@ public class Customer {
         this.customerId = customerId;
     }
 
-    @Column(name = "firstName", nullable = false)
+    @Column(name = "first_name", nullable = true)
     public String getFirstName() {
         return firstName;
     }
@@ -49,7 +49,7 @@ public class Customer {
         this.firstName = firstName;
     }
 
-    @Column(name = "lastName", nullable = false)
+    @Column(name = "last_name", nullable = true)
     public String getLastName() {
         return lastName;
     }
@@ -57,7 +57,7 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    @Column(name = "emailId", nullable = false)
+    @Column(name = "email_id", nullable = true)
     public String getEmailId() {
         return emailId;
     }
@@ -67,7 +67,7 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer [customerID=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName + ", emailId=" + emailId
+        return "Customer [customer_id=" + customerId + ", first_name=" + firstName + ", last_name=" + lastName + ", email_id=" + emailId
                 + "]";
     }
 }
