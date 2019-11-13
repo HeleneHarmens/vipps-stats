@@ -27,7 +27,7 @@ public class VippsStatsApplication {
 
 	public static void main(String[] args) {
 
-		//SpringApplication.run(VippsStatsApplication.class, args);
+		// For testing, not needed
 
 		String host = "ec2-54-197-238-238.compute-1.amazonaws.com";
 		String port = "5432";

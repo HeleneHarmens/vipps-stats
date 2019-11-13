@@ -55,7 +55,6 @@ public class Customer {
     }
 
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
     public int getCustomerId() {
         return customerId;
@@ -120,7 +119,7 @@ public class Customer {
         this.languageCode = languageCode;
     }
 
-    @Column(name = "created_at", nullable = true)
+    @Column(name = "created_on", nullable = true)
     public String getCreatedOn() {
         return createdOn;
     }
