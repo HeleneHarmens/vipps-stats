@@ -8,6 +8,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "stats", schema = "public")
 public class Stats {
+    private int customer_id;
     private int since_last_sent;
     private int since_last_received;
     private int total_amount_sent;
@@ -20,7 +21,7 @@ public class Stats {
 
     }
 
-    public Stats(int since_last_sent, int since_last_received, int total_amount_sent, int total_amount_received, int number_of_sent, int number_of_received, int amount_merchant) {
+    public Stats(int customer_id, int since_last_sent, int since_last_received, int total_amount_sent, int total_amount_received, int number_of_sent, int number_of_received, int amount_merchant) {
         this.since_last_sent = since_last_sent;
         this.since_last_received = since_last_received;
         this.total_amount_sent = total_amount_sent;
@@ -28,6 +29,7 @@ public class Stats {
         this.number_of_sent = number_of_sent;
         this.number_of_received = number_of_received;
         this.amount_merchant = amount_merchant;
+        this.customer_id = customer_id;
     }
 
     public int getSince_last_sent() {
@@ -84,5 +86,13 @@ public class Stats {
 
     public void setTotal_amount_received(int total_amount_received) {
         this.total_amount_received = total_amount_received;
+    }
+
+    public int getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(int customer_id) {
+        this.customer_id = customer_id;
     }
 }
