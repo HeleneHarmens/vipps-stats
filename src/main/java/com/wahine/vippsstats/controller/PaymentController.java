@@ -25,7 +25,7 @@ public class PaymentController {
             return paymentRepository.findAll();
     }
 
-
+    /*
     @GetMapping("/payments/{customer_id}")
     public ResponseEntity<List<Payment>> getPaymentsByCustomerId(@PathVariable(value = "customer_id") int customerId)
             throws ResourceNotFoundException {
@@ -37,6 +37,21 @@ public class PaymentController {
             }
         }
         return ResponseEntity.ok().body(customer_payment);
+    }
+    */
+
+
+    @GetMapping("/payments/{customer_id}")
+    public List<Payment> getPaymentsByCustomerId(@PathVariable(value = "customer_id") int customerId)
+            throws ResourceNotFoundException {
+        List<Payment> payments = getAllPayments();
+        List<Payment> customer_payment = new ArrayList<>();
+        for (Payment payment : payments) {
+            if (payment.getcustomerID() == customerId) {
+                customer_payment.add(payment);
+            }
+        }
+        return customer_payment;
     }
 
     /*
