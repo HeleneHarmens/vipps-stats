@@ -73,6 +73,7 @@ public class Customer {
         this.emailId = emailId;
     }
 
+    /*
     @Column(name = "dob", nullable = true)
     public String getDob() {
         return dob;
@@ -136,6 +137,8 @@ public class Customer {
     public void setStatus(int status) {
         Status = status;
     }
+
+     */
 
     @Override
     public String toString() {
