@@ -1,5 +1,6 @@
 package com.wahine.vippsstats.controller;
 
+import static com.wahine.vippsstats.VippsStatsApplication.*;
 import com.wahine.vippsstats.exception.ResourceNotFoundException;
 import com.wahine.vippsstats.model.Customer;
 import com.wahine.vippsstats.model.Payment;
@@ -66,11 +67,18 @@ public class PaymentController {
 
     /*
     @GetMapping("/payments/{customer_id}")
-    public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "customer_id") int customerId) throws ResourceNotFoundException {
+    public Payment getPaymentsFromId(@PathVariable(value = "customer_id") int customerId) throws ResourceNotFoundException {
         //Payment payment = paymentRepository.findById(customerId)
           //      .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
 
-        return returnStats(customerId);
+        return returnStats("payment");
     }
-    */
+
+    @GetMapping("/user/{ID}")
+    public Users userGet(@PathVariable int ID){
+        System.out.println("Returning default search of user with ID "+ID);
+        return getUser(ID);
+    }
+
+     */
 }

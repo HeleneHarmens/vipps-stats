@@ -58,7 +58,7 @@ public class VippsStatsApplication {
 	}
 
 
-	public ResultSet returnStats(String table, String pkColumn) {
+	public ResultSet returnStats(String table) {
 		try {
 			this.connect();
 			Statement stmt = null;
@@ -67,10 +67,13 @@ public class VippsStatsApplication {
 			stmt = this.connection.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			//System.out.println("Column " + pkColumn);
+			/*
 			while (rs.next()) {
 				String id = new String(rs.getBytes(pkColumn), StandardCharsets.UTF_8);
 				//System.out.println("| Column " + id + " |");
 			}
+
+			 */
 
 			this.disconnect();
 			return rs;
