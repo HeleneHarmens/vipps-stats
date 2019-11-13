@@ -12,10 +12,10 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String emailId;
-    private int ssn;
-    /*
-    private String dob;
     private int mobileNumber;
+    /*
+    private int ssn;
+    private String dob;
     private String languageCode;
     private String createdAt;
     private String updatedOn;
@@ -37,6 +37,7 @@ public class Customer {
     }
 
     public Customer(int customerId, String firstName, String lastName, String emailId) {
+        this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
@@ -60,12 +61,12 @@ public class Customer {
      */
 
 
-    public Customer(int customerId, String firstName, String lastName, String emailId, int ssn) {
+    public Customer(int customerId, String firstName, String lastName, String emailId, int mobileNumber) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
-        this.ssn = ssn;
+        this.mobileNumber = mobileNumber;
     }
 
     @Id
@@ -102,13 +103,14 @@ public class Customer {
         this.emailId = emailId;
     }
 
-    @Column(name = "ssn", nullable = true)
-    public int getSsn() {
-        return ssn;
+    @Column(name = "mobile_number", nullable = true)
+    public int getMobileNumber() {
+        return mobileNumber;
     }
-    public void setSsn(int ssn) {
-        this.ssn = ssn;
+    public void setMobileNumber(int mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
+
     /*
     @Column(name = "dob", nullable = true)
     public String getDob() {
@@ -118,12 +120,12 @@ public class Customer {
         this.dob = dob;
     }
 
-    @Column(name = "mobile_number", nullable = true)
-    public int getMobileNumber() {
-        return mobileNumber;
+    @Column(name = "ssn", nullable = true)
+    public int getSsn() {
+        return ssn;
     }
-    public void setMobileNumber(int mobileNumber) {
-        this.mobileNumber = mobileNumber;
+    public void setSsn(int ssn) {
+        this.ssn = ssn;
     }
 
     @Column(name = "language_code", nullable = true)
@@ -175,8 +177,8 @@ public class Customer {
                 "last_name=" + lastName + ", " +
                 "email_id=" + emailId + ", " +
                 //"dob=" + dob + ", " +
-                "ssn=" + ssn
-                //"mobile_number=" + mobileNumber + ", " +
+                //"ssn=" + ssn
+                "mobile_number=" + mobileNumber
                 //"language_code=" + languageCode + ", " +
                 //"created_at=" + createdAt + ", " +
                 //"updated_on=" + updatedOn + ", " +
