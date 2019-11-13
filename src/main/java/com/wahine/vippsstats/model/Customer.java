@@ -2,18 +2,26 @@ package com.wahine.vippsstats.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customer", schema = "public")
 public class Customer {
-    private long customerId;
+    private int customerId;
     private String firstName;
     private String lastName;
     private String emailId;
+    private String dob;
+    private int ssn;
+    private int mobileNumber;
+    private String languageCode;
+    private String createdAt;
+    private String updatedOn;
+    private String lastLoginDT;
+    private int Status;
+
+
 
     public Customer() {
 
@@ -25,7 +33,7 @@ public class Customer {
         this.emailId = emailId;
     }
 
-    public Customer(long customerId, String firstName, String lastName, String emailId) {
+    public Customer(int customerId, String firstName, String lastName, String emailId) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailId = emailId;
@@ -34,10 +42,10 @@ public class Customer {
     @Id
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id", nullable = false)
-    public long getCustomerId() {
+    public int getCustomerId() {
         return customerId;
     }
-    public void setCustomerId(long customerId) {
+    public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
 
@@ -63,6 +71,70 @@ public class Customer {
     }
     public void setEmailId(String emailId) {
         this.emailId = emailId;
+    }
+
+    @Column(name = "dob", nullable = true)
+    public String getDob() {
+        return dob;
+    }
+    public void setDob(String dob) {
+        this.dob = dob;
+    }
+
+    @Column(name = "ssn", nullable = true)
+    public int getSsn() {
+        return ssn;
+    }
+    public void setSsn(int ssn) {
+        this.ssn = ssn;
+    }
+
+    @Column(name = "mobile_number", nullable = true)
+    public int getMobileNumber() {
+        return mobileNumber;
+    }
+    public void setMobileNumber(int mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    @Column(name = "language_code", nullable = true)
+    public String getLanguageCode() {
+        return languageCode;
+    }
+    public void setLanguageCode(String languageCode) {
+        this.languageCode = languageCode;
+    }
+
+    @Column(name = "created_at", nullable = true)
+    public String getCreatedAt() {
+        return createdAt;
+    }
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    @Column(name = "updated_on", nullable = true)
+    public String getUpdatedOn() {
+        return updatedOn;
+    }
+    public void setUpdatedOn(String updatedOn) {
+        this.updatedOn = updatedOn;
+    }
+
+    @Column(name = "last_login_dt", nullable = true)
+    public String getLastLoginDT() {
+        return lastLoginDT;
+    }
+    public void setLastLoginDT(String lastLoginDT) {
+        this.lastLoginDT = lastLoginDT;
+    }
+
+    @Column(name = "status", nullable = true)
+    public int getStatus() {
+        return Status;
+    }
+    public void setStatus(int status) {
+        Status = status;
     }
 
     @Override

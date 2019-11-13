@@ -31,21 +31,6 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-    @GetMapping("/getcustomers")
-    public List<Customer> userGet(){
-        System.out.println("Returning default search of ALL users");
-        //return getUsers();
-        return getCustomers();
-    }
-
-    private List<Customer> getCustomers() {
-        List<Customer> userList = null;
-
-        userList.add(new Customer(123, "Helge", "Nilsen", "helge.nilsen@gmail.com"));
-
-       return userList;
-    }
-
     @GetMapping("/customer/{customerID}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "customer_id") Long customerId)
             throws ResourceNotFoundException {
