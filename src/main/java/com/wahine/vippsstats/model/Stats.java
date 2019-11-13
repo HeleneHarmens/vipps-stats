@@ -32,6 +32,15 @@ public class Stats {
         this.amountMerchant = amountMerchant;
     }
 
+    @Id
+    @Column(name = "customer_id", nullable = false)
+    public int getCustomerId() {
+        return customerId;
+    }
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
     @Column(name = "since_last_sent", nullable = true)
     public int getSinceLastSent() {
         return sinceLastSent;
@@ -44,7 +53,7 @@ public class Stats {
     public int getSinceLastReceived() {
         return sinceLastReceived;
     }
-    public void setSince_last_received(int sinceLastReceived) {
+    public void setSinceLastReceived(int sinceLastReceived) {
         this.sinceLastReceived = sinceLastReceived;
     }
 
@@ -54,6 +63,14 @@ public class Stats {
     }
     public void setTotalAmountSent(int totalAmountSent) {
         this.totalAmountSent = totalAmountSent;
+    }
+
+    @Column(name = "total_amount_received", nullable = true)
+    public int getTotalAmountReceived() {
+        return totalAmountReceived;
+    }
+    public void setTotalAmountReceived(int totalAmountReceived) {
+        this.totalAmountReceived = totalAmountReceived;
     }
 
     @Column(name = "number_of_sent", nullable = true)
@@ -80,20 +97,4 @@ public class Stats {
         this.amountMerchant = amountMerchant;
     }
 
-    @Column(name = "total_amount_received", nullable = true)
-    public int getTotalAmountReceived() {
-        return totalAmountReceived;
-    }
-    public void setTotalAmountReceived(int totalAmountReceived) {
-        this.totalAmountReceived = totalAmountReceived;
-    }
-
-    @Id
-    @Column(name = "customer_id", nullable = true)
-    public int getCustomerId() {
-        return customerId;
-    }
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
 }

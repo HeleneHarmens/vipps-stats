@@ -20,9 +20,7 @@ public class StatsController {
     private StatsRepository statsRepository;
 
     @GetMapping("/stats")
-    public List<Stats> getAllStats() {
-        return statsRepository.findAll();
-    }
+    public List<Stats> getAllStats() { return statsRepository.findAll(); }
 
     @GetMapping("/stats/{customer_id}")
     public ResponseEntity<Stats> getStatsByCustomerId(@PathVariable(value = "customer_id") int customerId)

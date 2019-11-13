@@ -1,17 +1,11 @@
 package com.wahine.vippsstats;
 
-import com.wahine.vippsstats.model.Customer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import java.nio.charset.StandardCharsets;
 import java.sql.*;
-import java.util.List;
 
 @Controller
 @SpringBootApplication
@@ -57,7 +51,7 @@ public class VippsStatsApplication {
 		SpringApplication.run(VippsStatsApplication.class, args);
 	}
 
-
+/*
 	public ResultSet returnStats(String table) {
 		try {
 			this.connect();
@@ -67,13 +61,11 @@ public class VippsStatsApplication {
 			stmt = this.connection.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			//System.out.println("Column " + pkColumn);
-			/*
-			while (rs.next()) {
-				String id = new String(rs.getBytes(pkColumn), StandardCharsets.UTF_8);
-				//System.out.println("| Column " + id + " |");
-			}
 
-			 */
+			//while (rs.next()) {
+				//String id = new String(rs.getBytes(pkColumn), StandardCharsets.UTF_8);
+				//System.out.println("| Column " + id + " |");
+			//}
 
 			this.disconnect();
 			return rs;
@@ -82,6 +74,7 @@ public class VippsStatsApplication {
 		}
 		return null;
 	}
+	*/
 
 	private void connect() throws Exception {
 		Class.forName("org.postgresql.Driver");
