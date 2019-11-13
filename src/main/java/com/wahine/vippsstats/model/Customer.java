@@ -16,7 +16,7 @@ public class Customer {
     private String ssn;
     private String dob;
     private String languageCode;
-    private String createdAt;
+    private String createdOn;
     private String updatedOn;
     private String lastLoginDT;
     private int Status;
@@ -39,7 +39,7 @@ public class Customer {
         this.emailId = emailId;
     }
 
-    public Customer(int customerId, String firstName, String lastName, String emailId, String mobileNumber, String ssn, String dob, String languageCode, String createdAt, String updatedOn, String lastLoginDT, int status) {
+    public Customer(int customerId, String firstName, String lastName, String emailId, String mobileNumber, String ssn, String dob, String languageCode, String createdOn, String updatedOn, String lastLoginDT, int status) {
         this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -48,7 +48,7 @@ public class Customer {
         this.ssn = ssn;
         this.dob = dob;
         this.languageCode = languageCode;
-        this.createdAt = createdAt;
+        this.createdOn = createdOn;
         this.updatedOn = updatedOn;
         this.lastLoginDT = lastLoginDT;
         Status = status;
@@ -121,11 +121,11 @@ public class Customer {
     }
 
     @Column(name = "created_at", nullable = true)
-    public String getCreatedAt() {
-        return createdAt;
+    public String getCreatedOn() {
+        return createdOn;
     }
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
     }
 
     @Column(name = "updated_on", nullable = true)
@@ -164,7 +164,7 @@ public class Customer {
                 "ssn=" + ssn + ", " +
                 "mobile_number=" + mobileNumber + ", " +
                 "language_code=" + languageCode + ", " +
-                "created_at=" + createdAt + ", " +
+                "created_on=" + createdOn + ", " +
                 "updated_on=" + updatedOn + ", " +
                 "last_login_dt=" + lastLoginDT + ", " +
                 "status=" + Status
