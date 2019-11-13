@@ -31,13 +31,20 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-    @GetMapping("/customer/{customerID}")
+    @GetMapping("/customer/{customerId}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable(value = "customer_id") int customerId)
             throws ResourceNotFoundException {
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
         return ResponseEntity.ok().body(customer);
     }
+    /*
+    @GetMapping("/customers/{customerId}")
+    public Customer methodName(@PathVariable int customerId)
+    {
+        int blogId = Integer.parseInt(customerId);
+    }
+     */
 
     @PostMapping("/customers")
     public Customer createCustomer(@Valid @RequestBody Customer customer) {
