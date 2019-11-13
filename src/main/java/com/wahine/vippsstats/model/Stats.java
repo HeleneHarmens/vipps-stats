@@ -32,6 +32,7 @@ public class Stats {
         this.customer_id = customer_id;
     }
 
+    @Column(name = "since_last_sent", nullable = true)
     public int getSince_last_sent() {
         return since_last_sent;
     }
@@ -40,6 +41,7 @@ public class Stats {
         this.since_last_sent = since_last_sent;
     }
 
+    @Column(name = "since_last_received", nullable = true)
     public int getSince_last_received() {
         return since_last_received;
     }
@@ -47,7 +49,7 @@ public class Stats {
     public void setSince_last_received(int since_last_received) {
         this.since_last_received = since_last_received;
     }
-
+    @Column(name = "total_amount_sent", nullable = true)
     public int getTotal_amount_sent() {
         return total_amount_sent;
     }
@@ -55,7 +57,7 @@ public class Stats {
     public void setTotal_amount_sent(int total_amount_sent) {
         this.total_amount_sent = total_amount_sent;
     }
-
+    @Column(name = "number_of_sent", nullable = true)
     public int getNumber_of_sent() {
         return number_of_sent;
     }
@@ -63,7 +65,7 @@ public class Stats {
     public void setNumber_of_sent(int number_of_sent) {
         this.number_of_sent = number_of_sent;
     }
-
+    @Column(name = "number_of_received", nullable = true)
     public int getNumber_of_received() {
         return number_of_received;
     }
@@ -71,7 +73,7 @@ public class Stats {
     public void setNumber_of_received(int number_of_received) {
         this.number_of_received = number_of_received;
     }
-
+    @Column(name = "amount_merchant", nullable = true)
     public int getAmount_merchant() {
         return amount_merchant;
     }
@@ -79,7 +81,7 @@ public class Stats {
     public void setAmount_merchant(int amount_merchant) {
         this.amount_merchant = amount_merchant;
     }
-
+    @Column(name = "total_amount_received", nullable = true)
     public int getTotal_amount_received() {
         return total_amount_received;
     }
@@ -87,7 +89,8 @@ public class Stats {
     public void setTotal_amount_received(int total_amount_received) {
         this.total_amount_received = total_amount_received;
     }
-
+    @Id
+    @Column(name = "customer_id", nullable = true)
     public int getCustomer_id() {
         return customer_id;
     }
