@@ -51,7 +51,7 @@ public class Payment {
         this.customerID = customerID;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "sender_id", nullable = true)
     public int getSenderID() {
         return senderID;
     }
@@ -60,7 +60,7 @@ public class Payment {
         this.senderID = senderID;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "receiver_id", nullable = true)
     public int getReceiverID() {
         return receiverID;
     }
@@ -69,7 +69,7 @@ public class Payment {
         this.receiverID = receiverID;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "message_created_on", nullable = true)
     public String getMessageCreatedOn() {
         return messageCreatedOn;
     }
@@ -78,7 +78,7 @@ public class Payment {
         this.messageCreatedOn = messageCreatedOn;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "message_created_by", nullable = true)
     public String getMessageCreatedBy() {
         return messageCreatedBy;
     }
@@ -87,7 +87,7 @@ public class Payment {
         this.messageCreatedBy = messageCreatedBy;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "message_status", nullable = true)
     public String getMessageStatus() {
         return messageStatus;
     }
@@ -96,7 +96,7 @@ public class Payment {
         this.messageStatus = messageStatus;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "doc_type", nullable = true)
     public String getDocType() {
         return docType;
     }
@@ -105,7 +105,7 @@ public class Payment {
         this.docType = docType;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "transaction_id", nullable = true)
     public int getTransactionID() {
         return transactionID;
     }
@@ -114,7 +114,7 @@ public class Payment {
         this.transactionID = transactionID;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "currency", nullable = true)
     public String getCurrency() {
         return currency;
     }
@@ -123,7 +123,7 @@ public class Payment {
         this.currency = currency;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "amount", nullable = true)
     public int getAmount() {
         return amount;
     }
@@ -132,7 +132,7 @@ public class Payment {
         this.amount = amount;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "is_request", nullable = true)
     public String getIsRequest() {
         return isRequest;
     }
@@ -141,7 +141,7 @@ public class Payment {
         this.isRequest = isRequest;
     }
 
-    @Column(name = "first_name", nullable = true)
+    @Column(name = "receiver_type", nullable = true)
     public String getReceiverType() {
         return receiverType;
     }

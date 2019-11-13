@@ -45,6 +45,7 @@ public class VippsStatsApplication {
 		psqlc.checkDemo("customer", "last_name");
 		psqlc.checkDemo("customer", "email_id");
 		psqlc.checkDemo("customer", "ssn");
+		psqlc.checkDemo("payment", "currency");
 
 
 		SpringApplication.run(VippsStatsApplication.class, args);
