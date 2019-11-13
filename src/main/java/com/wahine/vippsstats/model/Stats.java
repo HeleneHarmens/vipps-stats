@@ -8,94 +8,92 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "stats", schema = "public")
 public class Stats {
-    private int customer_id;
-    private int since_last_sent;
-    private int since_last_received;
-    private int total_amount_sent;
-    private int total_amount_received;
-    private int number_of_sent;
-    private int number_of_received;
-    private int amount_merchant;
+    private int customerId;
+    private int sinceLastSent;
+    private int sinceLastReceived;
+    private int totalAmountSent;
+    private int totalAmountReceived;
+    private int numberOfSent;
+    private int numberOfReceived;
+    private int amountMerchant;
 
     public Stats(){
 
     }
 
-    public Stats(int customer_id, int since_last_sent, int since_last_received, int total_amount_sent, int total_amount_received, int number_of_sent, int number_of_received, int amount_merchant) {
-        this.since_last_sent = since_last_sent;
-        this.since_last_received = since_last_received;
-        this.total_amount_sent = total_amount_sent;
-        this.total_amount_received = total_amount_received;
-        this.number_of_sent = number_of_sent;
-        this.number_of_received = number_of_received;
-        this.amount_merchant = amount_merchant;
-        this.customer_id = customer_id;
+    public Stats(int customerId, int sinceLastSent, int sinceLastReceived, int totalAmountSent, int totalAmountReceived, int numberOfSent, int numberOfReceived, int amountMerchant) {
+        this.customerId = customerId;
+        this.sinceLastSent = sinceLastSent;
+        this.sinceLastReceived = sinceLastReceived;
+        this.totalAmountSent = totalAmountSent;
+        this.totalAmountReceived = totalAmountReceived;
+        this.numberOfSent = numberOfSent;
+        this.numberOfReceived = numberOfReceived;
+        this.amountMerchant = amountMerchant;
     }
 
     @Column(name = "since_last_sent", nullable = true)
-    public int getSince_last_sent() {
-        return since_last_sent;
+    public int getSinceLastSent() {
+        return sinceLastSent;
     }
-
-    public void setSince_last_sent(int since_last_sent) {
-        this.since_last_sent = since_last_sent;
+    public void setSinceLastSent(int sinceLastSent) {
+        this.sinceLastSent = sinceLastSent;
     }
 
     @Column(name = "since_last_received", nullable = true)
-    public int getSince_last_received() {
-        return since_last_received;
+    public int getSinceLastReceived() {
+        return sinceLastReceived;
+    }
+    public void setSince_last_received(int sinceLastReceived) {
+        this.sinceLastReceived = sinceLastReceived;
     }
 
-    public void setSince_last_received(int since_last_received) {
-        this.since_last_received = since_last_received;
-    }
     @Column(name = "total_amount_sent", nullable = true)
-    public int getTotal_amount_sent() {
-        return total_amount_sent;
+    public int getTotalAmountSent() {
+        return totalAmountSent;
+    }
+    public void setTotalAmountSent(int totalAmountSent) {
+        this.totalAmountSent = totalAmountSent;
     }
 
-    public void setTotal_amount_sent(int total_amount_sent) {
-        this.total_amount_sent = total_amount_sent;
-    }
     @Column(name = "number_of_sent", nullable = true)
-    public int getNumber_of_sent() {
-        return number_of_sent;
+    public int getNumberOfSent() {
+        return numberOfSent;
+    }
+    public void setNumberOfSent(int numberOfSent) {
+        this.numberOfSent = numberOfSent;
     }
 
-    public void setNumber_of_sent(int number_of_sent) {
-        this.number_of_sent = number_of_sent;
-    }
     @Column(name = "number_of_received", nullable = true)
-    public int getNumber_of_received() {
-        return number_of_received;
+    public int getNumberOfReceived() {
+        return numberOfReceived;
+    }
+    public void setNumberOfReceived(int numberOfReceived) {
+        this.numberOfReceived = numberOfReceived;
     }
 
-    public void setNumber_of_received(int number_of_received) {
-        this.number_of_received = number_of_received;
-    }
     @Column(name = "amount_merchant", nullable = true)
-    public int getAmount_merchant() {
-        return amount_merchant;
+    public int getAmountMerchant() {
+        return amountMerchant;
+    }
+    public void setAmountMerchant(int amountMerchant) {
+        this.amountMerchant = amountMerchant;
     }
 
-    public void setAmount_merchant(int amount_merchant) {
-        this.amount_merchant = amount_merchant;
-    }
     @Column(name = "total_amount_received", nullable = true)
-    public int getTotal_amount_received() {
-        return total_amount_received;
+    public int getTotalAmountReceived() {
+        return totalAmountReceived;
+    }
+    public void setTotalAmountReceived(int totalAmountReceived) {
+        this.totalAmountReceived = totalAmountReceived;
     }
 
-    public void setTotal_amount_received(int total_amount_received) {
-        this.total_amount_received = total_amount_received;
-    }
     @Id
     @Column(name = "customer_id", nullable = true)
-    public int getCustomer_id() {
-        return customer_id;
+    public int getCustomerId() {
+        return customerId;
     }
-
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 }

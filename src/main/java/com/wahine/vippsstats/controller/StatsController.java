@@ -20,15 +20,15 @@ public class StatsController {
     private StatsRepository statsRepository;
 
     @GetMapping("/stats")
-    public List<Stats> getAllCustomers() {
+    public List<Stats> getAllStats() {
         return statsRepository.findAll();
     }
 
     @GetMapping("/stats/{customer_id}")
-    public ResponseEntity<Stats> getCustomerById(@PathVariable(value = "customer_id") int customer_id)
+    public ResponseEntity<Stats> getStatsByCustomerId(@PathVariable(value = "customer_id") int customerId)
             throws ResourceNotFoundException {
-        Stats stats = statsRepository.findById(customer_id)
-                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customer_id));
+        Stats stats = statsRepository.findById(customerId)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found for this id :: " + customerId));
         return ResponseEntity.ok().body(stats);
     }
 }
